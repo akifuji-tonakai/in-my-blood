@@ -1,0 +1,6 @@
+新規投稿フォームです
+
+<%= form_with model: @tag, local: true do |f| %>
+  <%= f.text_field :tag_name %>
+  <%= f.submit '送信' %>
+<% end %>
