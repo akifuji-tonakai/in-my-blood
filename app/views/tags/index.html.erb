@@ -1,0 +1,7 @@
+<h1>Tags#index</h1>
+<p>Find me in app/views/tags/index.html.erb</p>
+<%= link_to "ログアウト", destroy_user_session_path, {method: :delete, class:"btn btn-danger"} %>
+<%= link_to "新規投稿",  new_tag_path %>
+<% @tag.each do |tag| %>
+<%= link_to tag.tag_name, tag_path(:id) %>
+<% end %>
