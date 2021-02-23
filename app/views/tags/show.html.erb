@@ -1,5 +1,11 @@
+<% @tags.each do |tag| %>
+<%= link_to tag.tag_name, user_tag_path(tag.user.id,tag.id) %>
+<% end %>
+
 <% @urls.each do |url| %>
 <iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen></iframe>
+<%= link_to "削除", user_url_path(current_user.id, url.id), method: :delete %>
 <% end %>
+<%= link_to 'トップページ回帰', user_tags_path(@tag.user.id) %>
