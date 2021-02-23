@@ -6,7 +6,7 @@ class HomesController < ApplicationController
   private
   def come_in
     if user_signed_in?
-      redirect_to controller: :tags, action: :index
+      redirect_to user_tags_path(current_user.id)
     end
   end
 end
