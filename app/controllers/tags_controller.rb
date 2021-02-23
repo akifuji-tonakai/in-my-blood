@@ -24,6 +24,14 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @urls = @tag.urls
+    @user = User.find(params[:user_id])
+    @tags = @user.tags
+  end
+
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    redirect_to action: :index
   end
 
   private

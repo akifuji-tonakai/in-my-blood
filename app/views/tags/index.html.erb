@@ -4,6 +4,7 @@
 <%= link_to "新規投稿",  new_user_tag_path, class:"btn btn-primary" %>
 <div>
   <% @tags.each do |tag| %>
+  <%= link_to tag.tag_name, user_tag_path(current_user.id,tag.id) %>
+  <%= link_to "削除", user_tag_path(tag.user.id, tag.id), method: :delete %>
+  <% end %>
 </div>
-<%= link_to tag.tag_name, user_tag_path(current_user.id,tag.id) %>
-<% end %>
