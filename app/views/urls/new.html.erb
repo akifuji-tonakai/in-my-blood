@@ -1,0 +1,8 @@
+新規投稿フォームです
+
+<%= form_with model: [@user, @tag, @url], url: user_tag_urls_path(@user.id, @tag.id),method: :post, local: true do |f| %>
+<%= f.text_field :youtubepath %>
+<%= f.submit '送信' %>
+<% end %>
+
+<%= link_to "タグに戻る", user_tag_path(@user.id, @tag.id) %>
