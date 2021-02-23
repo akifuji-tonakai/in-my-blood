@@ -3,7 +3,7 @@
 <%= link_to "ログアウト", destroy_user_session_path, {method: :delete, class:"btn btn-danger"} %>
 <%= link_to "新規投稿",  new_user_tag_path, class:"btn btn-primary" %>
 <div>
-  <% @tag.each do |tag| %>
+  <% @tags.each do |tag| %>
 </div>
 <%= link_to tag.tag_name, user_tag_path(current_user.id,tag.id) %>
 <% end %>
