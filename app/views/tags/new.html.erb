@@ -1,6 +1,8 @@
 新規投稿フォームです
 
-<%= form_with model: @tag, local: true do |f| %>
-  <%= f.text_field :tag_name %>
-  <%= f.submit '送信' %>
+<%= form_with model: [@user, @tag_url], url: user_tags_path(@user.id),method: :post, local: true do |f| %>
+<%= f.text_field :tag_name %>
+<input name="tag_url[youtubepaths][]" type="input">
+<input name="tag_url[youtubepaths][]" type="input">
+<%= f.submit '送信' %>
 <% end %>
