@@ -1,12 +1,41 @@
-<% @tags.each do |tag| %>
-<%= link_to tag.tag_name, user_tag_path(tag.user.id,tag.id) %>
-<% end %>
-<%= link_to "url追加", new_user_tag_url_path(@user.id, @tag.id) %>
+<%= render "share/tagsheader" %>
+<%= link_to "url追加", new_user_tag_url_path(@user.id, @tag.id), class:"btn btn-success" %>
+<div class="main">
+  <div class="show-user-name">
+    <p><%= @user.nickname %><span><%= "さん" %></span></p>
+  </div>
 
-<% @urls.each do |url| %>
-<iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen></iframe>
-<%= link_to "削除", user_tag_url_path(@user.id, url.id), method: :delete %>
-<% end %>
-<%= link_to 'トップページ回帰', user_tags_path(@tag.user.id) %>
+  <div class="center-box">
+    <div class="tag-box">
+      <% @tags.each do |tag| %>
+      <% if @tag.id != tag.id  %>
+      <p>
+        <%= link_to tag.tag_name, user_tag_path(tag.user.id,tag.id), class:"tag-link" %>
+      </p>
+      <% else %>
+      <h2>
+        <%= tag.tag_name %>
+      </h2>
+      <% end %>
+      <% end %>
+    </div>
+    <ul class="show-lists">
+      <% @urls.each do |url| %>
+      <% if user_signed_in? && current_user.id = @user.id %>
+      <li><%= link_to "", user_tag_url_path(@user.id, url.id), method: :delete, class:"btn-close btn-lg" %>
+        <iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </li>
+      <% else %>
+      <li><iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <%# <%= link_to "一覧へ", user_tags_path(@tag.user.id) %>
+
+</div>

@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+a {
+  text-decoration: none;
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(243, 219, 219);
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+}
+
+header {
+  position: fixed;
+}
+
+.field_with_errors {
+  display: contents;
+}

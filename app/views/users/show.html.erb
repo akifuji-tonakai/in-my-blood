@@ -1,0 +1,40 @@
+  <div class="main">
+    <h2>投稿タグ一覧</h2>
+    <% if @tags.exists? %>
+    <div class="center-box">
+      <table class="table table-success table-striped table-hover m-3">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">タグ名</th>
+            <th scope="col">動画数</th>
+            <th scope="col">削除ボタン</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each_with_index do |tag,index| %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= link_to tag.tag_name, user_tag_path(@user.id,tag.id), class:"btn btn-danger" %></td>
+            <td><%= tag.urls.length %></td>
+            <td>
+              <%= link_to "del(#{tag.tag_name})", user_tag_path(@user.id, tag.id), method: :delete, class:"btn btn-secondary" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+
+
+    </div>
+    <% else %>
+    <h3>
+      <%= "投稿されたタグはありません" %></h3>
+    <h3>
+      <%= "新たに採血しましょう" %></h3>
+    <%= link_to "新規投稿",  new_user_tag_path(params[:id]), class:"btn btn-primary m-1" %>
+    <% end %>
+  </div>

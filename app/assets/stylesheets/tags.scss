@@ -1,3 +1,188 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(243, 219, 219);
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+
+  h2 {
+    background-color: burlywood;
+    font-family: monospace;
+  }
+
+  h1 {
+    background-color: chocolate;
+  }
+
+  h3 {
+    background-color: rgb(241, 116, 116);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+}
+
+.center-box {
+  width: 95%;
+
+  .tag-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5%;
+    background-color: bisque;
+    overflow: scroll;
+
+    p {
+      background-color: rgb(231, 104, 104);
+      width: 17%;
+      text-align: center;
+      font-size: 3vmin;
+      display: block;
+      margin: 0.1%;
+      white-space: nowrap;
+
+      a {
+        color: white
+      }
+
+      a:hover {
+        background-color: rgb(235, 164, 164);
+        color: rgb(211, 73, 73);
+      }
+    }
+
+    h2 {
+      width: 17%;
+      font-size: 4vmin;
+      white-space: nowrap;
+      text-align: center;
+      background-color: rgb(240, 61, 61);
+      color: white;
+      margin: 0, 0.1%;
+      display: block;
+      border-radius: 15px;
+      font-weight: 400;
+    }
+  }
+
+  .embed-container {
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    position: relative;
+    height: auto;
+    flex-wrap: wrap;
+
+
+    .embed-inner {
+      padding: 1%; // 動画のaspect比がこれで決まります。
+      position: relative;
+
+
+      .embed-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.and-more {
+  color: gray;
+}
+
+// show
+.show-user-name {
+  font-size: 10vmin;
+
+  span {
+    font-size: 4vmin;
+  }
+}
+
+.show-lists {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.new-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .left-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3%;
+      background-color: bisque;
+      width: 80%;
+
+      h2 {
+        font-family: 'Comic Sans MS', fantasy;
+        background-color: rgb(214, 245, 168);
+        color: rgb(214, 70, 142);
+        border-radius: 15px;
+      }
+
+      .url-box {
+        display: flex;
+        width: 100%;
+
+        p {
+          margin: 1%;
+        }
+      }
+
+      .submit-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 1%;
+      }
+
+      p {
+        small {
+          color: red;
+        }
+
+        .tag-form {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .ng-list {
+    background-color: white;
+    border-radius: 15px;
+    padding: 3%;
+    border: red 5px double;
+  }
+}
+
+
+
+
+.field_with_errors {
+  display: contents;
+}

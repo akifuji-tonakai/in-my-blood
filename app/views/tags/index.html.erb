@@ -1,10 +1,49 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
-<%= link_to "ログアウト", destroy_user_session_path, {method: :delete, class:"btn btn-danger"} %>
-<%= link_to "新規投稿",  new_user_tag_path, class:"btn btn-primary" %>
-<div>
-  <% @tags.each do |tag| %>
-  <%= link_to tag.tag_name, user_tag_path(current_user.id,tag.id) %>
-  <%= link_to "削除", user_tag_path(tag.user.id, tag.id), method: :delete %>
-  <% end %>
+<%= render "share/header" %>
+<div class="main">
+  <h2>
+    私、
+  </h2>
+  <h1>
+    <%= @user.nickname + "は"%>
+  </h1>
+
+
+  <div class="center-box">
+    <div class="tag-box">
+      <% if @tags.length < 5 %>
+      <% @tags.each do |tag| %>
+      <p>
+        <%= link_to tag.tag_name, user_tag_path(@user.id,tag.id), class:"tag-link" %>
+      </p>
+      <% end %>
+      <% else %>
+      <% @tags.shuffle.first(4).each do |tag| %>
+      <p>
+        <%= link_to tag.tag_name, user_tag_path(@user.id,tag.id) %>
+      </p>
+      <% end %>
+      <p class="and-more">
+        and...
+      </p>
+      <% end %>
+    </div>
+
+    <div class="embed-container">
+      <% @urls.sample(2).each do |url| %>
+      <div class="embed-inner">
+        <iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <h3>
+    で、構成されています
+  </h3>
+
+
 </div>

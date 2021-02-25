@@ -1,8 +1,45 @@
-新規投稿フォームです
-
-<%= form_with model: [@user, @tag_url], url: user_tags_path(@user.id),method: :post, local: true do |f| %>
-<%= f.text_field :tag_name %>
-<input name="tag_url[youtubepaths][]" type="input">
-<input name="tag_url[youtubepaths][]" type="input">
-<%= f.submit '送信' %>
-<% end %>
+<%= render 'share/header' %>
+<div class="new-box">
+  <div class="left-box">
+    <div class="form-box">
+      <h2>
+        <%= "new" %>
+      </h2>
+      <%= form_with model: [@user, @tag_url], url: user_tags_path(@user.id),method: :post, local: true do |f| %>
+      <p>
+        <%= "タグ：" %>
+        <%= f.text_field :tag_name, maxlength: "5",placeholder:"５文字",autofocus: true, class:"tag-form" %>
+        <small><%= "※必須" %></small>
+      </p>
+      <button type="button" class="btn btn-secondary"><%= "+" %></button>
+      <div class="url-box">
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+      </div>
+      <p class="submit-btn">
+        <%= f.submit "送信", class:"btn btn-primary"%>
+      </p>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'share/nglist' %>
+</div>

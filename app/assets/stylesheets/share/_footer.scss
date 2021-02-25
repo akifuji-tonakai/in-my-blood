@@ -1,0 +1,13 @@
+footer {
+  width: 100%;
+  background-color: rgb(102, 77, 77);
+  text-align: center;
+  position: absolute;
+  /*←絶対位置*/
+  bottom: 0;
+  /*下に固定*/
+
+  small {
+    color: rgb(209, 164, 164);
+  }
+}

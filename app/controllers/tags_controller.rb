@@ -1,11 +1,13 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :get_away, except: [:index, :show]
   def index
     @user = User.find(params[:user_id])
     @tags = @user.tags
+    @urls = Url.all.where(tag_id: @tags.ids)
   end
 
   def new
-    @user = User.find(params[:user_id])
     @tag_url = TagUrl.new
   end
 
@@ -16,7 +18,6 @@ class TagsController < ApplicationController
       delete_nill_url
       redirect_to action: :index
     else
-      @user = User.find(params[:user_id])
       render :new
     end
   end
@@ -31,7 +32,7 @@ class TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-    redirect_to action: :index
+    redirect_to controller: :users, action: :show, id: params[:user_id]
   end
 
   private
@@ -41,6 +42,12 @@ class TagsController < ApplicationController
   def delete_nill_url
     @falses = Url.where(youtubepath: "false")
     @falses.destroy_all
+  end
+  def get_away
+    @user = User.find(params[:user_id])
+    unless current_user.id == @user.id
+      redirect_to root_path
+    end
   end
 
 end

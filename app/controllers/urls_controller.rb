@@ -1,16 +1,16 @@
 class UrlsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :get_away
   def new
-    @user = User.find(params[:user_id])
     @tag = Tag.find(params[:tag_id])
     @url = Url.new
   end
   def create
-    @user = User.find(params[:user_id])
     @tag = Tag.find(params[:tag_id])
     @url = Url.new(url_params)
     if @url.save
-      redirect_to action: :new
       delete_nill_url
+      redirect_to action: :new
     else
       render :new
     end
@@ -30,6 +30,12 @@ class UrlsController < ApplicationController
   def delete_nill_url
     @falses = Url.where(youtubepath: "false")
     @falses.destroy_all
+  end
+  def get_away
+    @user = User.find(params[:user_id])
+    unless current_user.id == @user.id
+      redirect_to root_path
+    end
   end
  
 end
