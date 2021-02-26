@@ -1,6 +1,17 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
-<% unless user_signed_in? %>
-<%= link_to "新規登録", new_user_registration_path, class:"btn btn-success" %>
-<%= link_to "ログイン", new_user_session_path, class:"btn btn-primary" %>
-<% end %>
+<div class="homes-box">
+  <%= render 'share/homesheader' %>
+  <div class="homes-center-box">
+    <h3>
+      あなたの<span>D</span>egital <span>N</span>ative <span>A</span>rchitectureは…？
+    </h3>
+    <% unless user_signed_in? %>
+    <div class="homes-user-btn">
+      <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success" %>
+      <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary" %>
+    </div>
+    <% end %>
+    <h2>
+      好きなYoutube動画を登録して、フォロワーに公開しよう
+    </h2>
+  </div>
+</div>

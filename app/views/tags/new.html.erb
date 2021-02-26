@@ -11,29 +11,26 @@
         <%= f.text_field :tag_name, maxlength: "5",placeholder:"５文字",autofocus: true, class:"tag-form" %>
         <small><%= "※必須" %></small>
       </p>
-      <button type="button" class="btn btn-secondary"><%= "+" %></button>
+      <button type="button" id="plus-btn" class="btn btn-secondary"><%= "+" %></button>
+      <div class="url-box-hidden">
+        <% 6.times do %>
+        <p>
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+        </p>
+        <% end %>
+      </div>
       <div class="url-box">
         <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
+          <input name="tag_url[youtubepaths][]" type="input" class="form-control"
+            placeholder="https://youtube.com/hogehoge">
         </p>
+        <% 5.times do %>
         <p>
           <input name="tag_url[youtubepaths][]" type="input" class="form-control">
         </p>
-        <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
-        </p>
-        <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
-        </p>
-        <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
-        </p>
-        <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
-        </p>
-        <p>
-          <input name="tag_url[youtubepaths][]" type="input" class="form-control">
-        </p>
+        <% end %>
+      </div>
+      <div class="url-box-set">
       </div>
       <p class="submit-btn">
         <%= f.submit "送信", class:"btn btn-primary"%>
