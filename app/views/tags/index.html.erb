@@ -1,4 +1,9 @@
+<% if user_signed_in? %>
 <%= render "share/header" %>
+<% else %>
+<%= render "share/guestheader" %>
+<% end %>
+
 <div class="main">
   <h2>
     私、

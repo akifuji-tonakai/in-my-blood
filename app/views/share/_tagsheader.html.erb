@@ -3,7 +3,9 @@
     <h4 class="m-1"><%= "IN MY BLOOD" %></h4>
     <div class="function">
       <%= link_to "新規タグの投稿",  new_user_tag_path, class:"btn btn-primary m-1" %>
+      <% if @user.id == current_user.id%>
       <%= link_to "url追加" ,  new_user_tag_url_path(@user.id,@tag.id), class:"btn btn-success" %>
+      <% end %>
       <%= link_to "マイページ", user_tags_path(current_user.id), class:"btn btn btn-info" %>
       <%= link_to "タグ削除", user_path(current_user.id), class:"btn btn-outline-light" %>
       <%= link_to "ログアウト", destroy_user_session_path, {method: :delete, class:"btn btn-danger m-1"} %>
