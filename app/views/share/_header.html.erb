@@ -2,6 +2,7 @@
   <div class="header-box container d-flex justify-content-between">
     <h4 class="m-1"><%= "IN MY BLOOD" %></h4>
     <div class="function">
+      <%= link_to "おまけ", "https://www.evernote.com/shard/s438/sh/72b06ffd-d87d-d170-1ef2-876fda0b38d7/d13129734476d82932fc3c6d6b4a6aff", class:"btn btn-warning" %>
       <%= link_to "新規投稿",  new_user_tag_path, class:"btn btn-primary m-1" %>
       <%= link_to "マイページ", user_tags_path(current_user.id), class:"btn btn btn-info" %>
       <%= link_to "タグ削除", user_path(current_user.id), class:"btn btn-outline-light" %>
