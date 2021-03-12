@@ -33,8 +33,9 @@
 - ユーザー管理機能
 - タグ＆url保存機能
 - iframeタグ一覧表示機能
-
-
+# デプロイurl
+https://in-my-blood.herokuapp.com/users/4/tags
+*法的観点からurl投稿機能に一部制限をかけています
 # テーブル設計
 
 ## users テーブル
