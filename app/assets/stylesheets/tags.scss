@@ -113,7 +113,11 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  justify-content: space-evenly;
+  justify-content: left;
+
+  .list-box {
+    margin: 0 30px;
+  }
 }
 
 .new-box {

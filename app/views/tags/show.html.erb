@@ -28,13 +28,14 @@
     <ul class="show-lists">
       <% @urls.each do |url| %>
       <% if user_signed_in? && current_user.id = @user.id %>
-      <li><%= link_to "", user_tag_url_path(@user.id, url.id), method: :delete, class:"btn-close btn-lg" %>
+      <li class="list-box">
+        <%= link_to "", user_tag_url_path(@user.id, url.id), method: :delete, class:"btn-close btn-lg" %>
         <iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </li>
       <% else %>
-      <li><iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
+      <li class="list-box"><iframe width="560" height="315" src=<%= url.youtubepath %> frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </li>
